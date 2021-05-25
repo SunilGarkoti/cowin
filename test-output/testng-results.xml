@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-05-25T21:37:51 IST" name="Default suite" finished-at="2021-05-25T21:37:53 IST" duration-ms="1924">
+    <groups>
+    </groups>
+    <test started-at="2021-05-25T21:37:51 IST" name="Default test" finished-at="2021-05-25T21:37:53 IST" duration-ms="1924">
+      <class name="cowin.book_appoinment">
+        <test-method signature="check_vacination_same_day()[pri:1, instance:cowin.book_appoinment@3246fb96]" started-at="2021-05-25T21:37:51 IST" name="check_vacination_same_day" finished-at="2021-05-25T21:37:52 IST" duration-ms="1656" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- check_vacination_same_day -->
+        <test-method signature="check_vacination_nextday()[pri:2, instance:cowin.book_appoinment@3246fb96]" started-at="2021-05-25T21:37:52 IST" name="check_vacination_nextday" finished-at="2021-05-25T21:37:53 IST" duration-ms="242" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- check_vacination_nextday -->
+      </class> <!-- cowin.book_appoinment -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
