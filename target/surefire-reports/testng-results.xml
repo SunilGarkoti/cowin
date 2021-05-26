@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="2664" started-at="2021-05-26T08:27:42 IST" finished-at="2021-05-26T08:27:45 IST">
+  <suite name="Suite" duration-ms="2209" started-at="2021-05-26T08:36:57 IST" finished-at="2021-05-26T08:36:59 IST">
     <groups>
     </groups>
-    <test name="Test" duration-ms="2664" started-at="2021-05-26T08:27:42 IST" finished-at="2021-05-26T08:27:45 IST">
+    <test name="Test" duration-ms="2209" started-at="2021-05-26T08:36:57 IST" finished-at="2021-05-26T08:36:59 IST">
       <class name="cowin.book_appoinment">
-        <test-method status="PASS" signature="check_vacination_same_day()[pri:1, instance:cowin.book_appoinment@598067a5]" name="check_vacination_same_day" duration-ms="2379" started-at="2021-05-26T08:27:42 IST" finished-at="2021-05-26T08:27:44 IST">
+        <test-method status="PASS" signature="check_vacination_same_day()[pri:1, instance:cowin.book_appoinment@598067a5]" name="check_vacination_same_day" duration-ms="1948" started-at="2021-05-26T08:36:57 IST" finished-at="2021-05-26T08:36:59 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- check_vacination_same_day -->
-        <test-method status="PASS" signature="check_vacination_nextday()[pri:2, instance:cowin.book_appoinment@598067a5]" name="check_vacination_nextday" duration-ms="252" started-at="2021-05-26T08:27:44 IST" finished-at="2021-05-26T08:27:45 IST">
+        <test-method status="PASS" signature="check_vacination_nextday()[pri:2, instance:cowin.book_appoinment@598067a5]" name="check_vacination_nextday" duration-ms="229" started-at="2021-05-26T08:36:59 IST" finished-at="2021-05-26T08:36:59 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- check_vacination_nextday -->

@@ -36,7 +36,7 @@ public class book_appoinment {
 	@Test(priority = 1)
 	public void check_vacination_same_day() {
 
-		HashMap<String, String> val = new HashMap<>();
+		HashMap<String, String> val = new HashMap<String, String>();
 		val.put("district_id", "199");
 		val.put("date", getcurrent_date());
 
@@ -69,7 +69,7 @@ public class book_appoinment {
 	@Test(priority = 2)
 	public void check_vacination_nextday() {
 
-		HashMap<String, String> val = new HashMap<>();
+		HashMap<String, String> val = new HashMap<String, String>();
 		val.put("district_id", "199");
 		val.put("date", getnext_day());
 
@@ -100,7 +100,7 @@ public class book_appoinment {
 
 	public void send_sms() {
 
-		HashMap<String, String> val = new HashMap<>();
+		HashMap<String, String> val = new HashMap<String, String>();
 		val.put("authorization", "A4WP1BbvEewXpmoCQ02alYMjxFnf5kD8LTthVgcKS7Uq9IzJu3er8zwMNF0c59dVGtXja2qiPnZpJEBS");
 		val.put("route", "q");
 		val.put("message",
