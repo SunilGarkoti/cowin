@@ -40,11 +40,12 @@ public class book_appoinment {
 		val.put("district_id", "199");
 		val.put("date", getcurrent_date());
 
-		Response response = RestAssured.given().params(val).header("Accept-Language", "hi_IN").when()
+		Response response = RestAssured.given().params(val).contentType(ContentType.JSON).when()
 				.get("https://www.cowin.gov.in/api/v2/appointment/sessions/public/calendarByDistrict/");
-
 		CowinPayload response_setup = response.as(com.main.cowin.CowinPayload.class);
 
+		send_sms();
+		
 		List<Center> getcenter = response_setup.getCenters();
 
 		if (getcenter.size() > 0) {
@@ -73,7 +74,7 @@ public class book_appoinment {
 		val.put("district_id", "199");
 		val.put("date", getnext_day());
 
-		Response response = RestAssured.given().params(val).when()
+		Response response = RestAssured.given().params(val).contentType(ContentType.JSON).when()
 				.get("https://www.cowin.gov.in/api/v2/appointment/sessions/public/calendarByDistrict/");
 
 		CowinPayload response_setup = response.as(com.main.cowin.CowinPayload.class);
@@ -109,7 +110,7 @@ public class book_appoinment {
 		val.put("flash", "0");
 		val.put("numbers", "9971063417");
 
-		Response response = RestAssured.given().params(val).when().get("https://www.fast2sms.com/dev/bulkV2");
+		Response response = RestAssured.given().params(val).contentType(ContentType.JSON).when().get("https://www.fast2sms.com/dev/bulkV2");
 
 	}
 
