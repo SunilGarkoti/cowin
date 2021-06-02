@@ -33,71 +33,54 @@ public class book_appoinment {
 	DateTimeFormatter dtf;
 	LocalDate currentDate;
 
-	@Test(priority = 1)
-	public void check_vacination_same_day() {
+	 HashMap<String, String> val = new HashMap<String, String>();
+         int var = 0;
 
-		HashMap<String, String> val = new HashMap<String, String>();
-		val.put("district_id", "199");
-		val.put("date", getcurrent_date());
+    @Test(invocationCount = 2)
+    public void check_vacination_same_day() {
 
-		Response response = RestAssured.given().params(val).contentType(ContentType.JSON).when()
-				.get("https://www.cowin.gov.in/api/v2/appointment/sessions/public/calendarByDistrict/");
-		CowinPayload response_setup = response.as(com.main.cowin.CowinPayload.class);
+        val.put("district_id", "199");
 
-		send_sms();
-		
-		List<Center> getcenter = response_setup.getCenters();
+        if (var == 0) {
 
-		if (getcenter.size() > 0) {
-			for (int i = 0; i < getcenter.size(); i++) {
+            val.put("date", getcurrent_date());
 
-				List<Session> getsessions = getcenter.get(i).getSessions();
+            var++;
+        } else {
+            val.put("date", getnext_day());
 
-				if (getcenter.get(i).getFeeType().equals("Free")) {
+        }
 
-					if (getsessions.get(0).getAvailableCapacity() > 0 && getsessions.get(0).getMinAgeLimit() == 45) {
+        Response response = RestAssured.given().params(val)
+                .contentType(ContentType.JSON).when()
+                .get("https://www.cowin.gov.in/api/v2/appointment/sessions/public/calendarByDistrict/");
+        CowinPayload response_setup = response
+                .as(com.main.cowin.CowinPayload.class);
 
-						send_sms();
-					}
+        List<Center> getcenter = response_setup.getCenters();
 
-				}
+        if (getcenter.size() > 0) {
+            for (int i = 0; i < getcenter.size(); i++) {
 
-			}
-		}
+                List<Session> getsessions = getcenter.get(i).getSessions();
 
-	}
+                if (getcenter.get(i).getFeeType().equals("Free")) {
 
-	@Test(priority = 2)
-	public void check_vacination_nextday() {
+                    if (getsessions.get(0).getAvailableCapacity() > 0
+                            && getsessions.get(0).getMinAgeLimit() == 45) {
 
-		HashMap<String, String> val = new HashMap<String, String>();
-		val.put("district_id", "199");
-		val.put("date", getnext_day());
+                        send_sms();
+                    }
 
-		Response response = RestAssured.given().params(val).contentType(ContentType.JSON).when()
-				.get("https://www.cowin.gov.in/api/v2/appointment/sessions/public/calendarByDistrict/");
+                }
 
-		CowinPayload response_setup = response.as(com.main.cowin.CowinPayload.class);
+            }
+        }
 
-		List<Center> getcenter = response_setup.getCenters();
+    }
 
-		if (getcenter.size() > 0) {
 
-			for (int i = 0; i < getcenter.size(); i++) {
-
-				List<Session> getsessions = getcenter.get(i).getSessions();
-
-				if (getcenter.get(i).getFeeType().equals("Free")) {
-
-					if (getsessions.get(0).getAvailableCapacity() > 0 && getsessions.get(0).getMinAgeLimit() == 45) {
-						send_sms();
-					}
-
-				}
-
-			}
-		}
-	}
+	
 
 	public void send_sms() {
 
