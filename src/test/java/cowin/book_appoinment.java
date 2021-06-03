@@ -67,7 +67,7 @@ public class book_appoinment {
                 if (getcenter.get(i).getFeeType().equals("Free")) {
 
                     if (getsessions.get(0).getAvailableCapacity() > 0
-                            && getsessions.get(0).getMinAgeLimit() == 45) {
+                            && getsessions.get(0).getMinAgeLimit() >=18) {
 
                         send_sms();
                     }
